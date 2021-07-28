@@ -1,0 +1,22 @@
+{
+  "name": "svelte-float-window",
+  "version": "1.0.0",
+  "description": "A Svelte component for a moveable floating window - with a slot and a resize corner.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "svelte": "src/index.js",
+  "scripts": {
+      "build": "rollup -c",
+      "dev": "rollup -c -w"
+  },
+  "keywords": [ "svelte", "floating-window", "html-mdi" ],
+  "author": "Richard Leddy",
+  "license": "ISC",
+  "devDependencies": {
+    "rollup": "^2.55.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-svelte": "^7.1.0",
+    "svelte": "^3.41.0"
+  }
+}
+
