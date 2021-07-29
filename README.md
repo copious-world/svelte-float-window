@@ -4,6 +4,10 @@ A Svelte Floating Window component.
 ## Include it in your Svelte App
 
 ```
+npm install svelte-float-window
+```
+
+```
 import FloatWindow from "svelte-float-window";
 ```
 
