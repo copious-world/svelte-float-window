@@ -21,7 +21,7 @@ let all_window_scales = [
 </FloatWindow>
 
 
-<FloatWindow title={SecondtWindowTitle} index={1} scale_size_array={all_window_scales[1]} >
+<FloatWindow title={SecondWindowTitle} index={1} scale_size_array={all_window_scales[1]} >
 	<InternalComponentType1 {...another_thing}  />
 </FloatWindow>
 
