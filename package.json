@@ -17,6 +17,14 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-svelte": "^7.1.0",
     "svelte": "^3.41.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/copious-world/svelte-float-window"
+  },
+  "homepage": "www.copious.world",
+  "bugs": {
+      "url": "https://github.com/copious-world/svelte-float-window/issues"
   }
 }
 
