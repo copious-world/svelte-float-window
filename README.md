@@ -15,6 +15,15 @@ import FloatWindow from "svelte-float-window";
 
 ```
 
+// There has to be a call that opens the window 
+// start_floating_window takes the window index={number}
+// see the floating window attributes
+function some_button_click(ev) {
+	let id = ev.target.id
+	let window_select_num = function_returning_int_based_click_source(id);
+	start_floating_window(window_select_num)
+}
+
 let all_window_scales = [
 	{ "w" : w_percent_0, "h" : h_percent_0 },
 	{ "w" : w_percent_1, "h" : h_percent_1 }
