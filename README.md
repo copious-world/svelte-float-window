@@ -44,7 +44,7 @@ let all_window_scales = [
 
 [Issues](https://github.com/copious-world/svelte-float-window/issues)
 
-In general, there are interesting interface problems that are being solved as part of [copious-world](https://github.com/copious-world). And, in creating this repository, the author is looking to pass on some experience and get infrastructure taken care of for site building, specific topics of use, and to help the world in general get their enterprises up quickly and cheaply. This author favor the independent operator, the libertarian mindset, and values family and community.
+In general, there are interesting interface problems that are being solved as part of [copious-world](https://github.com/copious-world). And, in creating this repository, the author is looking to pass on some experience and get infrastructure taken care of for site building, specific topics of use, and to help the world in general get their enterprises up quickly and cheaply. This author favors the independent operator, the libertarian mindset, and values family and community.
 
 
 
