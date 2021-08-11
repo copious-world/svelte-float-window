@@ -20,7 +20,7 @@ import FloatWindow from "svelte-float-window";
 // see the floating window attributes
 function some_button_click(ev) {
 	let id = ev.target.id
-	let window_select_num = function_returning_int_based_click_source(id);
+	let window_select_num = function_returning_int_based_on_click_source(id);
 	start_floating_window(window_select_num)
 }
 
