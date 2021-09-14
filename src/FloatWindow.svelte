@@ -1,7 +1,10 @@
 <script>
 
 	import Resizer from './w_resize.svelte'
-	import { onMount } from 'svelte';
+	import { onMount, createEventDispatcher } from 'svelte';
+
+	const dispatch = createEventDispatcher();
+
 
 	export let title;
 	export let scale_size_array;
@@ -97,6 +100,10 @@
 			var popup = document.getElementById(popupId);
 			if ( popup === undefined ) return
 			popup.style.display = "none";
+			dispatch('message', {
+				type: 'click',
+				element: closer
+			});
 		}
 	}
 
