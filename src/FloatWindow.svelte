@@ -1,9 +1,10 @@
 <script>
 
 	import Resizer from './w_resize.svelte'
-	import { onMount, createEventDispatcher } from 'svelte';
+	import { onMount } from 'svelte';
 
-	const dispatch = createEventDispatcher();
+
+	// ref ... https://gist.github.com/akirattii/9165836
 
 
 	export let title;
@@ -64,8 +65,12 @@
 			do_resize(index)
 		})
 
-		window.start_floating_window = (index) => {
-			popup_starter(index)
+		window.start_floating_window = (index,ph,pw) => {
+			popup_starter(index,ph,pw)
+		}
+
+		window.fix_z_topper = (idx) => {
+			fix_z_order(idx)
 		}
 
 	})
@@ -100,10 +105,6 @@
 			var popup = document.getElementById(popupId);
 			if ( popup === undefined ) return
 			popup.style.display = "none";
-			dispatch('message', {
-				type: 'click',
-				element: closer
-			});
 		}
 	}
 
@@ -154,19 +155,33 @@
 	function do_resize(ii) {
 		var popup = document.getElementById(`popup_${ii}`);
 		if ( popup ) {
-			popup.style.width = (window.innerWidth*scale_current_size.w) - SCROLL_WIDTH + "px";
-			popup.style.height = (window.innerHeight*scale_current_size.h) - SCROLL_WIDTH + "px";
+			let case_h = popup._x_save_scale_h
+			let case_w = popup._x_save_scale_w
+			let w_scale = (case_w === undefined) ? scale_current_size.w : (scale_current_size.w*case_w)
+			let h_scale = (case_h === undefined) ? scale_current_size.h : (scale_current_size.h*case_h)
+			popup.style.width = (window.innerWidth*w_scale) - SCROLL_WIDTH + "px";
+			popup.style.height = (window.innerHeight*h_scale) - SCROLL_WIDTH + "px";
 			originals(popup)
 		}
 	}
 
-	function popup_starter(ii) {
+	function popup_starter(ii,case_h,case_w) {
 		var popup = document.getElementById(`popup_${ii}`);
 		if ( popup && (popup.style.display !== 'block') ) {
 			popup.style.top = "4px";
 			popup.style.left = "4px";
-			popup.style.width = (window.innerWidth*scale_current_size.w) - SCROLL_WIDTH + "px";
-			popup.style.height = (window.innerHeight*scale_current_size.h) - SCROLL_WIDTH + "px";
+			if ( typeof case_h === 'number' ) {
+				popup._x_save_scale_h = case_h
+			}
+			if ( typeof case_w === 'number' ) {
+				popup._x_save_scale_w = case_w			
+			}
+			let w_scale = (case_w === undefined) ? scale_current_size.w : (scale_current_size.w*case_w)
+			let h_scale = (case_h === undefined) ? scale_current_size.h : (scale_current_size.h*case_h)
+			popup.style.width = (window.innerWidth*w_scale) - SCROLL_WIDTH + "px";
+			popup.style.height = (window.innerHeight*h_scale) - SCROLL_WIDTH + "px";
+			originals(popup)
+			//
 			popup.style.display = "block";
 			setTimeout(() => { fix_height(ii,4); },40)
 		}
