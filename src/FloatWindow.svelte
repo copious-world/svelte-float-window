@@ -35,6 +35,7 @@
 
 
 	let scale_current_size = Object.assign({},scale_size_array)
+	$: scale_current_size = Object.assign({},scale_size_array)
 
 	onMount(() => {
 		let z_index_buffer = window._fws_z_order

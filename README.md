@@ -1,6 +1,8 @@
 # svelte-float-window
 A Svelte Floating Window component.
 
+(**note:** version 1.0.2 ... still version 3 svelte. Fixed: resizing percentage stuck on initialization.)
+
 ## Include it in your Svelte App
 
 ```
